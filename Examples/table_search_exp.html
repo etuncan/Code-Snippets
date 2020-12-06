@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+		
+		</style>
+	</head>
+	<body>
+		<!--Content Styling Wrapper-->	
+		<div id="wrapper">
+			
+			<!--*Title*-->
+			<h2>Search Table by Name</h2>
+			
+			<!--*Search Bar*-->
+			<img id="search_image" src="test_Assets/tempsearchIcon-20x20@2x.png"/>
+			<input type="text" id="search_input" onkeyup="searchFunction()" placeholder="Search by name..">
+			
+			<!--*Item List Start*-->
+			<ul id="image_list">
+				<li>
+					<!--List item container-->
+					<div class="item">
+						<!--item image-->
+						<img src="test_Assets/tempImg1-100x100.png" />
+						<!--item name/caption-->
+						<p>Temp One(Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg2-100x100.png" />
+						<p>Temp Two (Pencil)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg3-100x100.png" />
+						<p>Temp Three (Ink)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg4-100x100.png" />
+						<p>Temp Four (Mixed)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg5-100x100.png" />
+						<p>Temp Five (Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg6-100x100.png" />
+						<p>Temp Six (Charcoal)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg7-100x100.png" />
+						<p>Temp Seven (Mixed)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg8-100x100.png" />
+						<p>Temp Eight (Digital)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg9-100x100.png" />
+						<p>Temp Nine (Digital)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg10-100x100.png" />
+						<p>Temp Ten (Pencil)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg11-100x100.png" />
+						<p>Temp Eleven (Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/tempImg12-100x100.png" />
+						<p>Temp Twelve (Digital)</p>
+					</div>	
+				</li>
+				
+			</ul>
+		
+		</div>
+		<!--*Item List End*-->
+		
+		<!--*Javascript Start*-->
+		<script>
+			<!--*Search Function*-->
+			function searchFunction(){
+				<!--initializing variable-->
+				var input,filter,ul,li,img,i,inputValue;
+				input=document.getElementById('search_input');
+				filter=input.value.toLowerCase();
+				<!--matching vars to corresponding html elements-->
+				ul=document.getElementById('image_list');
+				li=ul.getElementsByTagName('li');
+				
+				<!--creates array of all list items & checks each for text matching text in search bar-->
+				for (i=0; i<li.length; i++){
+					img=li[i].getElementsByTagName("p")[0];
+					inputValue=img.textContent||img.innerText;
+					if(inputValue.toLowerCase().indexOf(filter)>-1){
+						<!--changes CSS display of item to its default(show)-->
+						li[i].style.display="";
+					}
+					else{
+						<!--hides item via CSS display attribute-->
+						li[i].style.display="none";
+					}
+				}
+			}
+		</script>
+		<!--*Javascript End*-->
+	</body>
+</html>
