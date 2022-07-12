@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>New User Registration</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href=" ">
+	</head>
+	<body>
+		<!--html form for registering a new user-->
+		<div id="userReg">
+			<form method="post" action="<?php filter_input(INPUT_SERVER,'PHP_SELF',Filter_SANITIZE_FULL_SPECIAL_CHARS); ?>">	
+				<label for="firstname">First Name*</label>
+				<input type="text" name="firstname" id="firstname" required>
+				<br/>
+				
+				<label for="lastname">Last Name</label>
+				<input type="text" name="lastname" id="lastname">
+				<br/>
+				
+				<label for="dob">Date of Birth</label>
+				<input type="date" name="dob" id="dob">
+				<br/>
+				
+				<label for="email">Email*</label> 
+				<input type="email" name="email" id="email" required>
+				<br/>
+				
+				<label for="password">Password</label>
+				<input type="password" name="password" id="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" required>
+				<!-- pattern regular expressions(in order) must contain >1 number, >1 lower-case, >1 uppercase, must meet must meet all of these criteria >1 time each + >=8 times over all, but no more than 16 times. -->	
+				
+				<label for="repwd">Retype Password</label>
+				<input type="password" name="repwd" id="repwd" oninput="passwordCheck()" required>
+				<br/>
+				
+				
+				<input type="submit" id="submit"value="Submit" disabled>
+			</form>
+		</div>
+		<script src="form_register_password_check.js"></script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		*{
+		box-sizing:border-box;
+		}
+		.drop-menu-click,.drop-menu-hover{
+			display:inline-block;
+			position:relative;
+			margin:10px;
+		}
+		
+		.drop-button{
+			padding:14px;
+			border:none;
+			font-size:14pt;
+			color:#ffffff;
+			background-color:#4caf50;
+		}
+		.drop-menu-hover:hover .drop-button{
+			background-color:#3e8e41;
+		}		
+		.drop-menu-hover:hover .drop-items{
+			display:block;
+		}
+		.drop-items{
+			display:none;
+			position:absolute;	
+			width:100%;
+			background-color:#f1f1f1;
+			box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);		
+			overflow:auto;
+			z-index:1;
+		}
+		.drop-items a{
+			display:block;
+			padding:12px 16px;
+			color:#000000;
+			text-decoration:none;
+		}
+		.drop-items a:hover{
+			background-color:#dddddd;
+		}
+		
+		
+	</style>
+	</head>
+	<body>
+		<div class="drop-menu-click">
+			<button class="drop-button" onclick="showDropMenu()">Menu 1</button>
+			<div id="drop-items-1" class="drop-items">
+				<a href="#">One</a>
+				<a href="#">Two</a>
+				<a href="#">Three</a>
+				<a href="#">Four</a>
+			</div>
+		</div>
+		<div class="drop-menu-hover">
+			<button class="drop-button">Menu 2</button>
+			<div class="drop-items">
+				<a href="#">One</a>
+				<a href="#">Two</a>
+				<a href="#">Three</a>
+				<a href="#">Four</a>
+			</div>
+		</div>
+		
+		<script>
+			function showDropMenu(){
+				let menu=document.getElementById("drop-items-1");
+				menu.style.display="block";
+			}
+			
+			window.onclick=function(event){
+				let checkDisplay=document.getElementById("drop-items-1").style.display;
+				if(checkDisplay==="block"){
+					if(!event.target.matches('.drop-button')){
+						document.getElementById("drop-items-1").style.display="none";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

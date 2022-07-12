@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<style>
+			#div-name{
+				margin:auto;
+			}
+			.option{
+				font-size:14pt;
+			}
+			.switch-name{
+				display:inline-block;
+				position:relative;
+				width:60px;
+				height:34px;
+				margin-left:1px;
+				margin-right:1px;
+			}
+			.switch-name input{
+				width:0;
+				height:0;
+				opacity:0;
+			}
+			.toggle{
+				position:absolute;
+				left:0;
+				right:0;
+				top:0;
+				bottom:0;
+				border-radius:34px;
+				background-color:#cccccc;
+				transition:.2s;
+				cursor:pointer;
+			}
+			.toggle:before{
+				position:absolute;
+				width:26px;
+				height:26px;
+				left:4px;
+				bottom:4px;
+				border-radius:50%;
+				background-color:#ffffff;
+				content:"";
+				transition:.4s;
+			}
+			input:checked+.toggle{
+				background-color:#000000;
+			}
+			input:checked+.toggle:before{
+			transform:translateX(26px);
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="div-name">
+			<span class="option">before</span>
+			<label class="switch-name">
+				<input type="checkbox">
+				<span class="toggle"></span>
+			</label>
+			<span class="option">after</span>
+		</div>
+	</body>
+</html>

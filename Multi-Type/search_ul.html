@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--**Search by Name Self-Contained Function(Javascript): Unordered List Version**(Complete)-->
+	
+	<!--Last Updated:11/21/2020 "comments revised"-->		
+
+<html>
+	<head>
+		<title>Search Unordered List by Name</title>
+		<meta charset="UTF-8">
+		
+		<!--*CSS Start*-->
+		<style>
+		*{
+			box-sizing:border-box;
+		}
+		html,body{
+			font-family:Arial,Helvetica,sans-serif;
+		}
+		#wrapper{
+			width:600px;
+			margin:auto;
+		}
+		h2{
+			margin-top:20%;
+			margin-left:10px;
+		}
+		#search_image{
+			width:28px;
+			height:28px;
+			display:block;
+			float:left;
+			margin-top:2%;
+			margin-left:10px;
+			padding:0px 0px;
+		}
+		#search_input{
+			width:300px;
+			height:28px;
+			font-size:16px;
+			padding-left:4px;
+			padding-right:4px;
+			margin-top:2%;
+			margin-bottom:20px;
+			background-color:#f2f2f2;
+		}
+		ul{
+			list-style-type:none;
+			width:580px;
+			height:600px;
+			margin:auto;
+			padding:30px 30px;
+			background-color:#f7f7f7;
+			font-size:0;
+			box-shadow:0 0 8px 1px #8c8c8c, 0 0 6px 2px #dcdcdc;
+		}
+
+		li{
+			display:inline-grid;
+			margin:4px 5px;
+			padding:10px 10px;
+			background-color:#ffffff;
+			box-shadow:0 0 8px 1px #cccccc;
+		}
+		p{
+			text-align:center;
+			width:100px;
+			margin-top:4px;
+			margin-bottom:4px;
+			font-size:10pt;
+		}
+		</style>
+		<!--*CSS End*-->
+	</head>
+	<body>
+		
+		<!--Content Styling Wrapper-->	
+		<div id="wrapper">
+			
+			<!--*Title*-->
+			<h2>Search Unordered List by Name</h2>
+			
+			<!--*Search Bar*-->
+			<img id="search_image" src="test_Assets/tempsearchIcon-20x20@2x.png"/>
+			<input type="text" id="search_input" onkeyup="searchFunction()" placeholder="Search by name..">
+			
+			<!--*Item List Start*-->
+			<ul id="image_list">
+				<li>
+					<!--List item container-->
+					<div class="item">
+						<!--item image-->
+						<img src="test_Assets/temp1-100x100.png" />
+						<!--item name/caption-->
+						<p>Temp One(Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp2-100x100.png" />
+						<p>Temp Two (Pencil)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp3-100x100.png" />
+						<p>Temp Three (Ink)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp4-100x100.png" />
+						<p>Temp Four (Mixed)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp5-100x100.png" />
+						<p>Temp Five (Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp6-100x100.png" />
+						<p>Temp Six (Charcoal)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp7-100x100.png" />
+						<p>Temp Seven (Mixed)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp8-100x100.png" />
+						<p>Temp Eight (Digital)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp9-100x100.png" />
+						<p>Temp Nine (Digital)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp10-100x100.png" />
+						<p>Temp Ten (Pencil)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp11-100x100.png" />
+						<p>Temp Eleven (Paint)</p>
+					</div>	
+				</li>
+				
+				<li>
+					<div class="item">
+						<img src="test_Assets/temp12-100x100.png" />
+						<p>Temp Twelve (Digital)</p>
+					</div>	
+				</li>
+				
+			</ul>
+		
+		</div>
+		<!--*Item List End*-->
+		
+		<!--*Javascript Start*-->
+		<script>
+			//*Search Function*
+			function searchFunction(){
+				//initializing variable
+				var input,filter,ul,li,img,i,inputValue;
+				input=document.getElementById('search_input');
+				filter=input.value.toLowerCase();
+				//matching vars to corresponding html elements
+				ul=document.getElementById('image_list');
+				li=ul.getElementsByTagName('li');
+				
+				//creates NodeList of all list items & checks each for text matching text in search bar-->
+				for (i=0; i<li.length; i++){
+					img=li[i].getElementsByTagName("p")[0];
+					inputValue=img.textContent||img.innerText;
+					if(inputValue.toLowerCase().indexOf(filter)>-1){
+						//changes CSS display of item to its default(show)
+						li[i].style.display="";
+					}
+					else{
+						//hides item via CSS display attribute
+						li[i].style.display="none";
+					}
+				}
+			}
+		</script>
+		<!--*Javascript End*-->
+	</body>
+</html>
